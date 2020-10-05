@@ -64,19 +64,19 @@ PRIMARY KEY(ID_Medicacao));
 #INSERT INTO Login (Usuario, Senha) VALUES ("igor", MD5("dd97813dd40be87559aaefed642c3fbb"));
 
 #SELECT * from login where usuario = "igor" and Senha = MD5("dd97813dd40be87559aaefed642c3fbb");
-SELECT * from login;
-select MAX(ID_Passaro) from passaro;
-select * from gaiola;
-select * from Hist_Alimentacao;
+#SELECT * from login;
+#select MAX(ID_Passaro) from passaro;
+#select * from gaiola;
+#select * from Hist_Alimentacao;
 
-SELECT ID_Insumo, Nome FROM Insumo WHERE Peso IS NULL;
+#SELECT ID_Insumo, Nome FROM Insumo WHERE Peso IS NULL;
 
-SELECT DISTINCT Gaiola.Descricao, Gaiola.ID_Gaiola FROM Gaiola, Passaro, Passaro_Gaiola WHERE Passaro.Proprietario = 1 AND Passaro.ID_Passaro = Passaro_Gaiola.ID_Passaro AND Passaro_Gaiola.ID_Gaiola = Gaiola.ID_Gaiola;
+#SELECT DISTINCT Gaiola.Descricao, Gaiola.ID_Gaiola FROM Gaiola, Passaro, Passaro_Gaiola WHERE Passaro.Proprietario = 1 AND Passaro.ID_Passaro = Passaro_Gaiola.ID_Passaro AND Passaro_Gaiola.ID_Gaiola = Gaiola.ID_Gaiola;
 
-select ID_Insumo, Nome from Insumo where Quantidade is null;
+#select ID_Insumo, Nome from Insumo where Quantidade is null;
 
-SELECT DISTINCT Gaiola.Descricao, Gaiola.ID_Gaiola FROM Gaiola, Passaro, Passaro_Gaiola WHERE Passaro.Proprietario = 1 AND Passaro.ID_Passaro = Passaro_Gaiola.ID_Passaro AND Passaro_Gaiola.ID_Gaiola = Gaiola.ID_Gaiola;
-SELECT DISTINCT Gaiola.Descricao, Gaiola.ID_Gaiola FROM Gaiola, Passaro, Passaro_Gaiola WHERE Passaro.Proprietario = 1 AND Passaro.ID_Passaro = Passaro_Gaiola.ID_Passaro AND Passaro_Gaiola.ID_Gaiola = Gaiola.ID_Gaiola;
+#SELECT DISTINCT Gaiola.Descricao, Gaiola.ID_Gaiola FROM Gaiola, Passaro, Passaro_Gaiola WHERE Passaro.Proprietario = 1 AND Passaro.ID_Passaro = Passaro_Gaiola.ID_Passaro AND Passaro_Gaiola.ID_Gaiola = Gaiola.ID_Gaiola;
+#SELECT DISTINCT Gaiola.Descricao, Gaiola.ID_Gaiola FROM Gaiola, Passaro, Passaro_Gaiola WHERE Passaro.Proprietario = 1 AND Passaro.ID_Passaro = Passaro_Gaiola.ID_Passaro AND Passaro_Gaiola.ID_Gaiola = Gaiola.ID_Gaiola;
 
-SELECT DISTINCT Insumo.Preco, Hist_Alimentacao.Peso,Insumo.Peso as inPeso FROM Gaiola, Passaro, Passaro_Gaiola,Hist_Alimentacao,Insumo WHERE Passaro.Proprietario = 1 AND Passaro.ID_Passaro = Passaro_Gaiola.ID_Passaro AND Passaro_Gaiola.ID_Gaiola = Gaiola.ID_Gaiola AND 
-Gaiola.ID_Gaiola = Hist_Alimentacao.ID_Gaiola AND Hist_Alimentacao.ID_Racao = Insumo.ID_Insumo;
+#SELECT DISTINCT Insumo.Preco, Hist_Alimentacao.Peso,Insumo.Peso as inPeso FROM Gaiola, Passaro, Passaro_Gaiola,Hist_Alimentacao,Insumo WHERE Passaro.Proprietario = 1 AND Passaro.ID_Passaro = Passaro_Gaiola.ID_Passaro AND Passaro_Gaiola.ID_Gaiola = Gaiola.ID_Gaiola AND 
+#Gaiola.ID_Gaiola = Hist_Alimentacao.ID_Gaiola AND Hist_Alimentacao.ID_Racao = Insumo.ID_Insumo;
