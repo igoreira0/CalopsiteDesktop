@@ -151,6 +151,7 @@ namespace Calopsite
                     precoDose += med.PrecoRemedio(int.Parse(dtResultado.Rows[i]["Quantidade"].ToString()), int.Parse(dtResultado.Rows[i]["inQuantidade"].ToString()), float.Parse(dtResultado.Rows[i]["Preco"].ToString()));
                 }
                 label4.Text = "Gasto Medicação: " + precoDose;
+                label5.Text = "Total Gasto: " + (precoDose + precoRacao);
             }
             catch (Exception) { }
 

@@ -109,22 +109,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Alimentacao.cs">
+    <Compile Include="form\Alimentacao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Alimentacao.Designer.cs">
+    <Compile Include="form\Alimentacao.Designer.cs">
       <DependentUpon>Alimentacao.cs</DependentUpon>
     </Compile>
-    <Compile Include="CadastroGaiola.cs">
+    <Compile Include="form\CadastroGaiola.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CadastroGaiola.Designer.cs">
+    <Compile Include="form\CadastroGaiola.Designer.cs">
       <DependentUpon>CadastroGaiola.cs</DependentUpon>
     </Compile>
-    <Compile Include="CadastroPassaro.cs">
+    <Compile Include="form\CadastroPassaro.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CadastroPassaro.Designer.cs">
+    <Compile Include="form\CadastroPassaro.Designer.cs">
       <DependentUpon>CadastroPassaro.cs</DependentUpon>
     </Compile>
     <Compile Include="entity\Gaiola.cs" />
@@ -132,72 +132,72 @@
     <Compile Include="entity\Hist_Medicacao.cs" />
     <Compile Include="entity\Insumo.cs" />
     <Compile Include="entity\Login.cs" />
-    <Compile Include="Autenticacao.cs">
+    <Compile Include="form\Autenticacao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Autenticacao.Designer.cs">
+    <Compile Include="form\Autenticacao.Designer.cs">
       <DependentUpon>Autenticacao.cs</DependentUpon>
     </Compile>
     <Compile Include="bd\BD.cs" />
     <Compile Include="entity\Passaro.cs" />
     <Compile Include="entity\PassaroGaiola.cs" />
-    <Compile Include="Gerencia.cs">
+    <Compile Include="form\Gerencia.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gerencia.Designer.cs">
+    <Compile Include="form\Gerencia.Designer.cs">
       <DependentUpon>Gerencia.cs</DependentUpon>
     </Compile>
-    <Compile Include="GerenciaPassaro.cs">
+    <Compile Include="form\GerenciaPassaro.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GerenciaPassaro.Designer.cs">
+    <Compile Include="form\GerenciaPassaro.Designer.cs">
       <DependentUpon>GerenciaPassaro.cs</DependentUpon>
     </Compile>
-    <Compile Include="GerenciarGaiola.cs">
+    <Compile Include="form\GerenciarGaiola.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GerenciarGaiola.Designer.cs">
+    <Compile Include="form\GerenciarGaiola.Designer.cs">
       <DependentUpon>GerenciarGaiola.cs</DependentUpon>
     </Compile>
-    <Compile Include="CadastroInsumo.cs">
+    <Compile Include="form\CadastroInsumo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CadastroInsumo.Designer.cs">
+    <Compile Include="form\CadastroInsumo.Designer.cs">
       <DependentUpon>CadastroInsumo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Medicacao.cs">
+    <Compile Include="form\Medicacao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Medicacao.Designer.cs">
+    <Compile Include="form\Medicacao.Designer.cs">
       <DependentUpon>Medicacao.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Alimentacao.resx">
+    <EmbeddedResource Include="form\Alimentacao.resx">
       <DependentUpon>Alimentacao.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Autenticacao.resx">
+    <EmbeddedResource Include="form\Autenticacao.resx">
       <DependentUpon>Autenticacao.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CadastroGaiola.resx">
+    <EmbeddedResource Include="form\CadastroGaiola.resx">
       <DependentUpon>CadastroGaiola.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CadastroPassaro.resx">
+    <EmbeddedResource Include="form\CadastroPassaro.resx">
       <DependentUpon>CadastroPassaro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gerencia.resx">
+    <EmbeddedResource Include="form\Gerencia.resx">
       <DependentUpon>Gerencia.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GerenciaPassaro.resx">
+    <EmbeddedResource Include="form\GerenciaPassaro.resx">
       <DependentUpon>GerenciaPassaro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GerenciarGaiola.resx">
+    <EmbeddedResource Include="form\GerenciarGaiola.resx">
       <DependentUpon>GerenciarGaiola.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CadastroInsumo.resx">
+    <EmbeddedResource Include="form\CadastroInsumo.resx">
       <DependentUpon>CadastroInsumo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Medicacao.resx">
+    <EmbeddedResource Include="form\Medicacao.resx">
       <DependentUpon>Medicacao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

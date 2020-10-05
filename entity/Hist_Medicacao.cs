@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Calopsite.entity
 {
@@ -22,9 +23,9 @@ namespace Calopsite.entity
         {
             return qtdDisponivel > qtdNecessaria ? true : false;
         }
-        public float PrecoRemedio(int doseTotal,float qtdDose,float precoTotal)
+        public float PrecoRemedio(int doseTotal,int qtdDose, float precoTotal)
         {
-            return (precoTotal * qtdDose) / doseTotal;
+            return (doseTotal * qtdDose) / precoTotal;
         }
     }
 }

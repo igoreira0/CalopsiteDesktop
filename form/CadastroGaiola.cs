@@ -60,7 +60,6 @@ namespace Calopsite
             command = new MySqlCommand(sb.ToString());
             command.Parameters.Add("@ID_Passaro", MySqlDbType.Int32);
             command.Parameters["@ID_Passaro"].Value = passaro.id_passaro;
-            MessageBox.Show(command.CommandText.ToString());
             bd.executarComando(command);
             command.Parameters["@ID_Passaro"].Value = passaro1.id_passaro;
             bd.executarComando(command);
@@ -77,7 +76,6 @@ namespace Calopsite
             command.Parameters["@ID_Passaro"].Value = passaroGaiola.id_passaro;
             command.Parameters.Add("@ID_Gaiola", MySqlDbType.Int32);
             command.Parameters["@ID_Gaiola"].Value = passaroGaiola.id_gaiola;
-            MessageBox.Show(command.CommandText.ToString());
             bd.executarComando(command);
             passaroGaiola.id_passaro = passaro1.id_passaro;
             command.Parameters["@ID_Passaro"].Value = passaroGaiola.id_passaro;
