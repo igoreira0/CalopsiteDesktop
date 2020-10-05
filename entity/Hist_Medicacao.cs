@@ -22,9 +22,9 @@ namespace Calopsite.entity
         {
             return qtdDisponivel > qtdNecessaria ? true : false;
         }
-        public float PrecoRemedio(int dose, float preco)
+        public float PrecoRemedio(int doseTotal,float qtdDose,float precoTotal)
         {
-            return dose / preco;
+            return (precoTotal * qtdDose) / doseTotal;
         }
     }
 }

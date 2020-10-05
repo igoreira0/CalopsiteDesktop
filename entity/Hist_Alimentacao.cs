@@ -24,7 +24,7 @@ namespace Calopsite.entity
         }
         public float GastoAlimentacao(float precoRacao, float peso, float pesoFracio)
         {
-            return (peso * pesoFracio) / precoRacao;
+            return (precoRacao * pesoFracio) / peso;
         }
     }
 }

@@ -67,7 +67,6 @@ namespace Calopsite
         private void loadGaiolas()
         {
             BD bd = new BD();
-            MessageBox.Show(login.id_usuario.ToString());
             StringBuilder str = new StringBuilder("SELECT DISTINCT Gaiola.Descricao, Gaiola.ID_Gaiola FROM Gaiola, Passaro, Passaro_Gaiola WHERE Passaro.Proprietario = @ID_Usuario AND Passaro.ID_Passaro = Passaro_Gaiola.ID_Passaro AND Passaro_Gaiola.ID_Gaiola = Gaiola.ID_Gaiola");
             MySqlCommand command = new MySqlCommand(str.ToString());
             command.Parameters.Add("@ID_Usuario", MySqlDbType.Int32);
@@ -95,7 +94,7 @@ namespace Calopsite
                 MessageBox.Show("Valor Invalido");
             }
             BD bd = new BD();
-            StringBuilder str = new StringBuilder("INSERT INTO Hist_Alimentacao (ID_Racao, Peso, ID_Gaiola) VALUES (@ID_Medicacao, @Quantidade, @ID_Gaiola)");
+            StringBuilder str = new StringBuilder("INSERT INTO Hist_Medicacao (ID_Remedio, Quantidade, ID_Gaiola) VALUES (@ID_Medicacao, @Quantidade, @ID_Gaiola)");
             MySqlCommand command = new MySqlCommand(str.ToString());
             command.Parameters.Add("@ID_Medicacao", MySqlDbType.Int32);
             command.Parameters["@ID_Medicacao"].Value = hist_Medicacao.id_medicacao;

@@ -18,6 +18,7 @@ namespace Calopsite
     {
         private Login login = null;
         private Gaiola gaiola = new Gaiola();
+        
         public Gerencia(int ID_Usuario, string Usuario, DateTime expiracao)
         {
             InitializeComponent();
@@ -30,7 +31,6 @@ namespace Calopsite
         private void loadGaiolas()
         {
             BD bd = new BD();
-            MessageBox.Show(login.id_usuario.ToString());
             StringBuilder str = new StringBuilder("SELECT DISTINCT Gaiola.Descricao, Gaiola.ID_Gaiola FROM Gaiola, Passaro, Passaro_Gaiola WHERE Passaro.Proprietario = @ID_Usuario AND Passaro.ID_Passaro = Passaro_Gaiola.ID_Passaro AND Passaro_Gaiola.ID_Gaiola = Gaiola.ID_Gaiola");
             MySqlCommand command = new MySqlCommand(str.ToString());
             command.Parameters.Add("@ID_Usuario", MySqlDbType.Int32);
@@ -114,24 +114,46 @@ namespace Calopsite
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Hist_Alimentacao hist = new Hist_Alimentacao();
-            BD bd = new BD();
-            float precoRacao = 0;
-            MessageBox.Show(login.id_usuario.ToString());
-            StringBuilder str = new StringBuilder("SELECT DISTINCT Insumo.Preco, Hist_Alimentacao.Peso, Insumo.Peso FROM Gaiola, Passaro, Passaro_Gaiola,Hist_Alimentacao,Insumo WHERE Passaro.Proprietario = @ID_Usuario AND Passaro.ID_Passaro = Passaro_Gaiola.ID_Passaro AND Passaro_Gaiola.ID_Gaiola = @Gaiola AND Gaiola.ID_Gaiola = Hist_Alimentacao.ID_Gaiola AND Hist_Alimentacao.ID_Racao = Insumo.ID_Insumo");
-            MySqlCommand command = new MySqlCommand(str.ToString());
-            command.Parameters.Add("@ID_Usuario", MySqlDbType.Int32);
-            command.Parameters["@ID_Usuario"].Value = login.id_usuario;
-            command.Parameters.Add("@Gaiola", MySqlDbType.Int32);
-            command.Parameters["@Gaiola"].Value = gaiola.id_gaiola;
-            DataTable dtResultado = new DataTable();
-            dtResultado.Clear();
-            dtResultado = bd.executarConsulta(command);
-            for(int i = 0; i<dtResultado.Rows.Count; i++)
+            try
             {
-                precoRacao += hist.GastoAlimentacao(float.Parse(dtResultado.Rows[i]["Preco"].ToString()), float.Parse(dtResultado.Rows[i]["inPeso"].ToString()), float.Parse(dtResultado.Rows[i]["Peso"].ToString()));
+                gaiola.id_gaiola = int.Parse(comboBox1.SelectedValue.ToString());
+                if (gaiola.id_gaiola < 1) throw new ArgumentException("loading");
+                Hist_Alimentacao hist = new Hist_Alimentacao();
+                Hist_Medicacao med = new Hist_Medicacao();
+                BD bd = new BD();
+                float precoRacao = 0;
+                float precoDose = 0;
+                StringBuilder str = new StringBuilder("SELECT DISTINCT Insumo.Preco, Hist_Alimentacao.Peso,Insumo.Peso as inPeso FROM Gaiola, Passaro, Passaro_Gaiola,Hist_Alimentacao,Insumo WHERE Passaro.Proprietario = @ID_Usuario AND Passaro.ID_Passaro = Passaro_Gaiola.ID_Passaro AND Passaro_Gaiola.ID_Gaiola = @Gaiola AND Gaiola.ID_Gaiola = Hist_Alimentacao.ID_Gaiola AND Hist_Alimentacao.ID_Racao = Insumo.ID_Insumo AND Insumo.Peso IS NOT NULL");
+                MySqlCommand command = new MySqlCommand(str.ToString());
+                command.Parameters.Add("@ID_Usuario", MySqlDbType.Int32);
+                command.Parameters["@ID_Usuario"].Value = login.id_usuario;
+                command.Parameters.Add("@Gaiola", MySqlDbType.Int32);
+                command.Parameters["@Gaiola"].Value = gaiola.id_gaiola;
+                DataTable dtResultado = new DataTable();
+                dtResultado.Clear();
+                dtResultado = bd.executarConsulta(command);
+                for(int i = 0; i<dtResultado.Rows.Count; i++)
+                {
+                    precoRacao += hist.GastoAlimentacao(float.Parse(dtResultado.Rows[i]["Preco"].ToString()), float.Parse(dtResultado.Rows[i]["inPeso"].ToString()), float.Parse(dtResultado.Rows[i]["Peso"].ToString()));
+                }
+                label3.Text = "Gasto Alimentação: " + precoRacao;
+                str = new StringBuilder("SELECT DISTINCT Insumo.Preco, Hist_Medicacao.Quantidade, Insumo.Quantidade as inQuantidade FROM Gaiola, Passaro, Passaro_Gaiola,Hist_Medicacao, Insumo WHERE Passaro.Proprietario = @ID_Usuario AND Passaro.ID_Passaro = Passaro_Gaiola.ID_Passaro AND Passaro_Gaiola.ID_Gaiola = @Gaiola AND Gaiola.ID_Gaiola = Hist_Medicacao.ID_Gaiola AND Hist_Medicacao.ID_Remedio = Insumo.ID_Insumo AND Insumo.Quantidade IS NOT NULL");
+                command = new MySqlCommand(str.ToString());
+                command.Parameters.Add("@ID_Usuario", MySqlDbType.Int32);
+                command.Parameters["@ID_Usuario"].Value = login.id_usuario;
+                command.Parameters.Add("@Gaiola", MySqlDbType.Int32);
+                command.Parameters["@Gaiola"].Value = gaiola.id_gaiola;
+                dtResultado = new DataTable();
+                dtResultado.Clear();
+                dtResultado = bd.executarConsulta(command);
+                for (int i = 0; i < dtResultado.Rows.Count; i++)
+                {
+                    precoDose += med.PrecoRemedio(int.Parse(dtResultado.Rows[i]["Quantidade"].ToString()), int.Parse(dtResultado.Rows[i]["inQuantidade"].ToString()), float.Parse(dtResultado.Rows[i]["Preco"].ToString()));
+                }
+                label4.Text = "Gasto Medicação: " + precoDose;
             }
-            MessageBox.Show(precoRacao.ToString());
+            catch (Exception) { }
+
         }
     }
 }

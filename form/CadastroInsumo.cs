@@ -59,7 +59,6 @@ namespace Calopsite
                 {
                     sb = new StringBuilder("INSERT INTO Insumo (Nome, ");
                     sb.Append("Peso, Preco) VALUES (@Nome, @Value, @Preco)");
-                    MessageBox.Show(sb.ToString());
                     command = new MySqlCommand(sb.ToString());
                     insumo.peso = float.Parse(textBox2.Text);
                     command.Parameters.Add("@Value", MySqlDbType.Float);
@@ -70,7 +69,6 @@ namespace Calopsite
                 {
                     sb = new StringBuilder("INSERT INTO Insumo (Nome, ");
                     sb.Append("Quantidade, Preco) VALUES (@Nome, @Value, @Preco)");
-                    MessageBox.Show(sb.ToString());
                     command = new MySqlCommand(sb.ToString());
                     insumo.quantidade = int.Parse(textBox2.Text);
                     if (insumo.quantidade <= 0) throw new ArgumentException("O valor inserido precisa ser maior que zero");
